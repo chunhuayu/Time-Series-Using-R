@@ -62,4 +62,7 @@ Month=c('J','A','S','O','N','D','J','F','M','A','M','J')
 # Alternatively, the exhibit can be reproduced by the following commands
 points(oilfilters,pch=Month)
 plot(oilfilters,type='l',ylab='Sales') points(y=oilfilters,x=time(oilfilters),pch=as.vector(season(oilfilters)))
-
+# a standard normal distribution is
+y=rnorm(48)
+# The data can then be plotted using the command
+plot(y, type='p', ylab='IID Normal Data')
