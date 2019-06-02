@@ -52,7 +52,6 @@ ar(ar1.s,order.max=1,AIC=F,method='yw')
 # These correspond to setting the option method='yw', method='ols', or method='mle', respectively. 
 
 
-
 # Exhibit 7.6, page 165.
 data(arma11.s)
 arima(arma11.s, order=c(1,0,1),method='CSS')
@@ -65,7 +64,7 @@ arima(arma11.s, order=c(1,0,1),method='CSS')
 # The intercept term reported in the output of the arima function is a misnomer, as it is in fact the mean! 
 # However, the mean so estimated generally differs slightly from the sample mean.
 
-Chapter 7 R Commands 445
+
 # Exhibit 7.10 on page 168.
 # This saves the fitted AR(3) model in the object named res. The output of the arima function is a list.
 res=arima(sqrt(hare),order=c(3,0,0))
@@ -79,7 +78,6 @@ fitted(res)
 set.seed(12345)
 coefm.cond.norm=arima.boot(res,cond.boot=T,is.normal=T, B=1000,init=sqrt(hare))
 # The arima.boot function carries out a bootstrap analysis based on a fitted ARIMA model. 
-# Its first argument is a fitted ARIMA model, that is, the output from the arima function. 
 # Four different bootstrap methods are available: 
 ## The bootstrap series can be initialized by a supplied value (cond.boot=T) or not (cond.boot=F), 
 ## a nonpara- metric bootstrap (is.normal=F) 
@@ -91,7 +89,8 @@ coefm.cond.norm=arima.boot(res,cond.boot=T,is.normal=T, B=1000,init=sqrt(hare))
 # obtained by maximum likelihood estimation with the bootstrap data. 
 # if B=1000 and the model is an AR(3), then the output is a 1000 by 4 matrix where each row consists of the bootstrap AR(1)
 # AR(2), and AR(3) coefficients plus the mean estimate in that order ( φ^1, φ^2, φ^3, μ^ ).
-# signif(apply(coefm.cond.norm,2,function(x) {quantile(x,c(.025,.975),na.rm=T)}),3)
+
+signif(apply(coefm.cond.norm,2,function(x) {quantile(x,c(.025,.975),na.rm=T)}),3)
 # This is a compound R statement. It is equivalent to the two commands
 temp=apply(coefm.cond.norm,2,function(x) {quantile (x,c(.025,.975),na.rm=T)})
 signif(temp,3)
