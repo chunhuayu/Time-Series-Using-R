@@ -15,22 +15,12 @@ r=acf(x,plot=F)$acf[1]
 # it only exists within the estimate.ma1.mom function environment. The second command is
 if (abs(r)<0.5) return((-1+sqrt(1-4*r^2))/(2*r)) else return(NA)
 
-# Note the line break after the if clause and the second half of the command. 
-# Since the if clause alone is incomplete, R assumes that it is to be continued on the next line. 
-# With the second line, R finds a complete R command and so concludes the two lines of commands together as a complete command.
-# In other words, R sees the next command as equivalent to the following one line:
-# if (abs(r)<0.5) return((-1+sqrt(1-4*r^2))/(2*r)) else return(NA) 
-# The function abs computes the absolute value of the argument passed to it, 
-# whereas sqrt is the function that computes the square root of its argument. 
-# Now, we are ready to interpret the second command: if the absolute value of r, 
 # the lag 1 autocorrelation of x, is less than 0.5 in magnitude, the function returns the number (−1 + sqrt(1 − 4*r^2))/(2*r)
 # which is the method-of-moments estimator of the MA(1) coefficient θ1 ; 
 # otherwise the function returns NA (see Equation (7.1.4) on page 150). 
-# The symbol NA is the code standing for a missing value in R. 
-# (NA stands for not available.) In this example, R is specifically instructed what value to return to the user. 
+# The symbol NA is the code standing for a missing value in R. (NA stands for not available.) 
 # However, the default procedure is that a function returns the value created by the last command in the function body. 
-# R provides a powerful computer language for doing statistics. 
-# Please consult the docu- ments on the R Website to learn more about R programming.
+
 
 # Exhibit 7.1 on page 152.
 data(ma1.2.s)
@@ -40,16 +30,14 @@ estimate.ma1.mom(ma1.2.s)
 data(ar1.s)
 # the preceding R command fits an AR(1) model for the ar1.s series by solving the Yule-Walker equation.
 ar(ar1.s,order.max=1,AIC=F,method='yw')
-# This computes the AR coefficient estimates for the ar1.s series. 
-# The ar function estimates the AR model for the centered data (that is, mean-corrected data), 
+# The ar function esti- mates the AR model for the centered data (that is, mean-corrected data), 
 # so the intercept must be zero and not estimated or printed out in the output. 
 # The ar function requires the user to specify the maximum AR order through the order.max argument. 
-# The AR order may be estimated by choosing the order, between 0 and the maximum order, whose model has the smallest AIC. 
-# This option can be specified by setting the AIC argument to take the true value, that is, AIC=T. 
-# Or we can switch off order selection by specifying AIC=F. 
-# The ar function can estimate the AR model using a number of methods, including solving the Yule-Walker equations, 
-# ordinary least squares, and maximum likelihood estimation (assuming normally distributed white noise error terms). 
-# These correspond to setting the option method='yw', method='ols', or method='mle', respectively. 
+### The AR order may be estimated by choosing the order, between 0 and the maximum order, whose model has the smallest AIC. 
+### This option can be specified by setting the AIC argument to take the true value, that is, AIC=T. 
+### Or we can switch off order selection by specifying AIC=F. 
+# The ar function can estimate the AR model using a number of methods, including solving the Yule-Walker equations= yw, 
+# ordinary least squares=ols, and maximum likelihood estimation =mle (assuming normally distributed white noise error terms).
 
 
 # Exhibit 7.6, page 165.
