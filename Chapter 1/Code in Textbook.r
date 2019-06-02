@@ -61,6 +61,5 @@ Month=c('J','A','S','O','N','D','J','F','M','A','M','J')
 # What letter is used for the 30th data point?
 # Alternatively, the exhibit can be reproduced by the following commands
 points(oilfilters,pch=Month)
-plot(oilfilters,type='l',ylab='Sales') points(y=oilfilters,x=time(oilfilters),
-   pch=as.vector(season(oilfilters)))
+plot(oilfilters,type='l',ylab='Sales') points(y=oilfilters,x=time(oilfilters),pch=as.vector(season(oilfilters)))
 
