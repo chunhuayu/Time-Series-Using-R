@@ -11,22 +11,14 @@ diff(log(oil.price),diff=2)
 # Note that the second argument of the diff function is the lag argument. 
 # By default, lag=1 and the diff function computes regular differences — first or higher differences. 
 # computing the seasonal differences of period 12 can be done by issuing the command 
-diff(tempdub,lag=12). 
 
-What will be computed by the command diff(log(oil.price),2)?
-One of the authors (KSC) committed a serious error, more than once,
-when he tried to compute the second regular differences of some time series by running a similar 
-command with unnamed arguments. Instead of the second regular differences, 
-the first seasonal differences of lag 2 were actually computed by the command with unnamed arguments! 
-Imagine his frustrations of many anxious hours, all because the data analysis from the flawed computations 
-seriously conflicted with expec- tations based on theory! 
-The moral is that passing unnamed arguments to a function is risky unless you know the positions of the relevant arguments 
-very well. It is well to remember that unnamed arguments, 
-if present, should appear together in the beginning part of the argument list, 
-and there should be no unnamed argument after a named one. 
-Indeed, mixed arguments (some named and some unnamed in a haphazard order) may result in erroneous interpretation by R. 
-The order of the arguments in a function can be quickly checked by running the command args(function.name) or 
-?function.name, where function.name should be replaced by the name of the function you are checking.
+diff(tempdub,lag=12). 
+# What will be computed by the command diff(log(oil.price),2)?
+# diff(log(oi.price),2)=diff(log(oil.price),lag=2)
+# Indeed, mixed arguments (some named and some unnamed in a haphazard order) may result in erroneous interpretation by R. 
+# The order of the arguments in a function can be quickly checked by running the command 
+# args(function.name) or ?function.name, 
+# where function.name should be replaced by the name of the function you are checking.
 
 
 # Exhibit 5.11 on page 102.
