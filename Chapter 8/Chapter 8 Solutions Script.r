@@ -10,7 +10,6 @@ LB.test(hare.fit,lag=9)
 runs(residuals(hare.fit))
 
 # (d)  Display the quantile-quantile normal plot of the residuals. Comment on the plot. 
-
 qqnorm(residuals(hare.fit))
 qqline(residuals(hare.fit))
 
